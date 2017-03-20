@@ -28,13 +28,17 @@ git commit -m "Add file readme.txt" #this command commits the file to the git re
 				    #-m flag tells git to treat text following text as a message 
 
 #Tells githb that there is a remote directory which should mirror the local directoy myrepo
-#username is the username you have given when you created your gihub account
+#username is the username you have given when you created your github account
 git remote add origin https://github.com/username/myrepo.git 
 
 #git has now established a connection between the local myrepo directory and the remote repo
 #we can confirm this using the following command
 #we see two origins i.e we are able to get information and push to the remote repo
 git remote -v
+
+#If the url is incorrect use the following command to set it to the correct one
+git remote set-url origin https://github.com/username/myrepo.git
+
 
 #The final command to push the changes made to our local repo to the remote repository	
 git push origin master
