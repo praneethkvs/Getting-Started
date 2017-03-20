@@ -1,0 +1,43 @@
+Download git for Windows
+Create a repo form the website myrepo
+open git bash
+
+cd ~/ #Change Directory to C:/Users/Admin
+
+makedir myrepo # Create a directory with name same as the repository name on the github website
+
+cd myrepo #Change directory to "myrepo" folder
+
+#Now that we are in the myrepo folder the important work begins.
+
+git init #Initiates a github repository
+	 #Adds a .git subfolder to your myrepo folder thus initializing an empty git repository
+
+git status #Shows any files and folders in the myrepo directory
+	   #Initially we have nothing to commit
+
+now we can create a new file from bash directly or copy a file and place it in the myrepo folder
+
+touch readme.txt #Creates a readme.txt file
+
+git status #This now shows us all the files in the myrepo folder as untracked files, i.e githb is ignoring the files
+
+git add readme.txt #This adds the file readme.txt and now git recognizes the file
+
+git commit -m "Add file readme.txt" #this command commits the file to the git repo
+				    #-m flag tells git to treat text following text as a message 
+
+#Tells githb that there is a remote directory which should mirror the local directoy myrepo
+#username is the username you have given when you created your gihub account
+git remote add origin https://github.com/username/myrepo.git 
+
+#git has now established a connection between the local myrepo directory and the remote repo
+#we can confirm this using the following command
+#we see two origins i.e we are able to get information and push to the remote repo
+git remote -v
+
+#The final command to push the changes made to our local repo to the remote repository	
+git push origin master
+
+#The command line will output a few lines of code and if you do not get an error you are done
+#Now go visit yor github repository page and Voila your files should be there
