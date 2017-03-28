@@ -70,3 +70,8 @@ git push origin master
 #The command line will output a few lines of code and if you do not get an error you are done.
 #Now go visit yor github repository page and Voila your files should be there.
 #You have just created your first GitHub repository. Rejoice. 
+
+
+## Some useful git commands
+git ls-files #lists all available files in the repository.
+git rm filename #deletes the file from the repository, Do not forget to push the changes after deleting files.
