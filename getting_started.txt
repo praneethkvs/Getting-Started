@@ -75,3 +75,5 @@ git push origin master
 ## Some useful git commands
 git ls-files #lists all available files in the repository.
 git rm filename #deletes the file from the repository, Do not forget to push the changes after deleting files.
+git add * #adds all files and folders n the repository in a single go
+git add <folder>/* # adds all files within folder to git repository.
