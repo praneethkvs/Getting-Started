@@ -2,7 +2,9 @@ Create a GitHub account by Signing up from the following url : "https://github.c
 Download git for Windows from the following url : "https://git-scm.com/downloads".
 
 First thing we need to do after signing in to the website is to create a new repository using the green "New repository" button.
-Type in the repository name, let's call it "myrepo", leave everything else blank and hit "Create repository".
+Type in the repository name, let's call it "firstrepo", leave everything else blank and hit "Create repository".
+Check the "initialize with a readme if not checked".
+
 We have now created a new repository in your github account, aah but there is nothing there, it's completely empty.
 Well then let's dive in deep.
 
@@ -14,58 +16,54 @@ Let's get coding.
 git config --global user.name "your_username_here"
 git config --global user.email "your_email_here"
 
-#Now that git knows who we are, we can continue with the task at hand.
+#Now that git knows who we are, we can continue.
 
 #We change our working directory to "C:/Users/Admin".
 #This is where we will store all or local repository files.
 cd ~/ 
 
-#Now we create a new directory, let's call it "myrepo" just to match the name of the repository we have previously created on the website. 
-makedir myrepo
+#Now we create a new directory, let's call it "myrepos" where we will store all our repositories.
+mkdir myrepos
 
-#Change directory to "myrepo" folder.
+#Change directory to "myrepos" folder.
 cd myrepo 
 
-#Now that we are in the myrepo folder, we can start using some real "git" commands.
-#We use the following command to intitate a git repository, the command adds a .git subfolder to your myrepo folder thus initializing an empty git repository.
-git init
+#Now that we are in the myrepos folder, we can start using some real "git" commands.
+#We need to get the remote repository that we created on github into this folder.
+git clone "https://github.com/yourusername/firstrepo" #This is the url of the repository that we just created on github.
 
-#The next git command shows the status of your repository i.e; files and folders in the "myrepo" directory.
-#Initially we have nothing and hence it says " nothing to commit".
+#This creates a folder in myrepos with the name corresponding the repository name, so in this case you should see a folder named firstrepo.
+#Let's get into it
+cd firstrepo
+
+
+#The next git command shows the status of your repository i.e; files and folders in the "firstrepo" directory.
 git status 
+#It should say "nothing to commit, working tree clean" as we haven't made any changes yet.
 
-#Now we can create a new file from bash directly or copy a file and place it in the "myrepo" folder
-#The "touch" command creates a new file in the current directory
-touch readme.txt 
+#This let's you see all the files in the folder "firstrepo".
+ls
+#At this point you must be seeing a single file README.md
 
+#Now we can create a new file from bash directly or copy all the files that you want to upload into the repository and paste them into the "firstrepo" folder.
 #By running the "status" command again, we can now see all the files in the myrepo folder but they are labelled as untracked files, i.e githb is ignoring the files.
 git status 
 
-#This adds the file readme.txt and now git recognizes the file and acknowledges it.
-git add readme.txt 
+#If you want to add a single file, This adds the file filename and now git recognizes the file and acknowledges it.
+git add filename
 
-#This command commits the file to the git repository.
+#To add all the files.
+git add *
+
+#This command commits all the changes made to the git repository.
 #-m flag tells git to treat text following it as a message.
-git commit -m "Add file readme.txt"  
-
-#Now we need to tell git that there is a remote directory on the github website which should mirror the local repository "myrepo".
-#To do this we use the following command and point it to the url of the remote repository.
-#Here replace "username" with your github username excluding the quotes, following the username is the name of the repository, in this case "myrepo".
-git remote add origin https://github.com/"username"/myrepo.git 
-
-
-#git has now established a connection between the local "myrepo" directory and the remote repository.
-#we can confirm this using the following command.
-git remote -v
-
-#we see two origins i.e we are able to get information and push to the remote repository.
-#If by mistake you have entered an incorrect url, use the following command to set it to the correct one.
-git remote set-url origin https://github.com/username/myrepo.git
-
+#Make sure that you have a message or git will throw an error.
+git commit -m "Add files"  
 
 #Lastly we need to update the changes made to our local repository and mirror these changes in the remote repository.	
 #For this we use the "push" command.
-git push origin master
+git push 
+#This might prompt you to login to git if it is the first time you opened it up.
 
 #The command line will output a few lines of code and if you do not get an error you are done.
 #Now go visit yor github repository page and Voila your files should be there.
