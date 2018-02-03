@@ -1,16 +1,18 @@
 git config --global user.name "your_username_here"
 git config --global user.email "your_email_here"
+
 cd ~/ 
-makedir myrepo
-cd myrepo
-git init
-touch readme.txt
+
+mkdir myrepos
+cd myrepos
+
+git clone "https://github.com/username/firstrepo" #The url of the repository you created on the github website.
+
+cd firstrepo
+
 git status 
-git add readme.txt
-git commit -m "Add file readme.txt"
-git remote add origin https://github.com/username/myrepo.git
-git remote -v
-git push origin master
+ls
 
-
-## Replace username line 11 as appropriate.
+git add *
+git commit -m "Add Files"
+git push
